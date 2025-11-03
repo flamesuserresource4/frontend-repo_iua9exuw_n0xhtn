@@ -1,28 +1,46 @@
-import { useState } from 'react'
+import Hero from "./components/Hero";
+import ProductShowcase from "./components/ProductShowcase";
+import MusicSpotlight from "./components/MusicSpotlight";
+import ActivitiesGallery from "./components/ActivitiesGallery";
+import { Rocket } from "lucide-react";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
+    <div className="min-h-screen bg-white text-neutral-900">
+      <header className="sticky top-0 z-50 backdrop-blur bg-white/70 border-b border-neutral-200/60">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 h-16 flex items-center justify-between">
+          <a href="#" className="inline-flex items-center gap-2 font-semibold">
+            <Rocket className="w-5 h-5 text-pink-600" />
+            Vibe by You
+          </a>
+          <nav className="hidden sm:flex items-center gap-6 text-sm">
+            <a href="#products" className="hover:text-pink-600">Products</a>
+            <a href="#music" className="hover:text-pink-600">EDM</a>
+            <a href="#activities" className="hover:text-pink-600">Activities</a>
+          </nav>
+          <a
+            href="#products"
+            className="inline-flex sm:hidden items-center gap-2 text-sm text-pink-600"
           >
-            Count is {count}
-          </button>
+            Shop
+          </a>
         </div>
-      </div>
-    </div>
-  )
-}
+      </header>
 
-export default App
+      <main>
+        <Hero />
+        <ProductShowcase />
+        <MusicSpotlight />
+        <ActivitiesGallery />
+      </main>
+
+      <footer className="border-t border-neutral-200 mt-10">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 py-10 text-sm text-neutral-600">
+          <p>
+            © {new Date().getFullYear()} Vibe by You — curating women’s products, EDM playlists, and fun plans.
+          </p>
+        </div>
+      </footer>
+    </div>
+  );
+}
